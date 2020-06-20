@@ -50,15 +50,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Header
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <MemeContainer
-          img={this.state.randomImg}
-          top={this.state.topTxt}
-          bottom={this.state.bottomTxt}
-        />
+        <div className="wrapper">
+          <Header
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <MemeContainer
+            img={this.state.randomImg}
+            top={this.state.topTxt}
+            bottom={this.state.bottomTxt}
+          />
+        </div>
       </div>
     );
   }
