@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+h1 {
+  font-family: "Piedra", cursive;
+}
+
+form {
+  padding: 1rem;
+}
+
+input {
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+button {
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.2rem;
+}
