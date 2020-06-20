@@ -16,11 +16,15 @@ class App extends React.Component {
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
-      .then((data) =>
+      .then((res) => {
+        const { memes } = res.data;
+        console.log(memes);
+
         this.setState({
-          allImgs: data,
-        })
-      );
+          allImgs: memes,
+        });
+      });
+    console.log(this.state.allImgs);
   }
 
   handleChange = (e) => {
@@ -32,17 +36,15 @@ class App extends React.Component {
   };
 
   handleSubmit = (e) => {
-    console.log("The hell!");
+    e.preventDefault();
+    const randNum = Math.floor(Math.random() * this.state.allImgs.length);
+    const randMemeImg = this.state.allImgs[randNum].url;
 
-    const randImg = Math.floor(Math.random() * this.state.allImgs.length);
-
-    console.log(randImg.url);
+    //console.log(randImg.url);
 
     this.setState({
-      randomImg: randImg.url,
+      randomImg: randMemeImg,
     });
-
-    e.preventDefault();
   };
 
   render() {
@@ -52,7 +54,11 @@ class App extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <MemeContainer img={this.state.randomImg} />
+        <MemeContainer
+          img={this.state.randomImg}
+          top={this.state.topTxt}
+          bottom={this.state.bottomTxt}
+        />
       </div>
     );
   }

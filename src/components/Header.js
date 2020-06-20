@@ -4,7 +4,7 @@ import "./Header.css";
 
 const Header = (props) => (
   <header>
-    <h1>Meme Generator</h1>
+    <h1 className="header">Meme Generator</h1>
     <form onSubmit={props.handleSubmit}>
       <input
         type="text"
